@@ -11,4 +11,5 @@
         include "view/home.php";
     }
     //hihi
+    //nhanh cua chinh
     ?>
