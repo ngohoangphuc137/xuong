@@ -28,9 +28,10 @@
                 <input type="hidden" name="id" value="<?php if(isset($id)&&($id > 0)) echo $id ;?>">
                 <input type="submit" class="btn btn-save" name="capnhat" value="Lưu Lại">
                 <a href="index.php?act=listdm" class="btn btn-save">Danh sách</a>
-                <a class="btn btn-cancel" href="/doc/table-data-oder.html">Hủy bỏ</a>
+                <a class="btn btn-cancel" href="?act=listdm">Hủy bỏ</a>
                 </form>
             </div>
         </div>
     </div>
 </main>
+<!-- xong dm (chinh)-->

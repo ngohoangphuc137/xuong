@@ -131,7 +131,7 @@
       }
     }
     </script>
-    <script>
+    <!-- <script>
         function deleteRow(r) {
             var i = r.parentNode.parentNode.rowIndex;
             document.getElementById("myTable").deleteRow(i);
@@ -157,4 +157,5 @@
             $('#sampleTable tbody :checkbox').prop('checked', $(this).is(':checked'));
             e.stopImmediatePropagation();
         });
-    </script>
+    </script> -->
+<!-- xong dm (chinh)-->
