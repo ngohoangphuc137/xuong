@@ -23,4 +23,5 @@ function update_danhmuc($id,$tenloai){
     $sql = "update categorys set name='".$tenloai."' where id=".$id;
     pdo_execute($sql);
 }
+//xong
 ?>

@@ -26,3 +26,4 @@ function update_sanpham($id,$tensp, $giasp, $hinh, $mota, $iddm){
             WHERE id='{$id}'";
     pdo_execute($sql);
 }
+//xong
