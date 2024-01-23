@@ -1,7 +1,8 @@
 <?php
 function listPost()
 {
-    $sql = "SELECT * FROM `post`";
+    $sql = "SELECT post.id AS 'id_post',users.user_name,users.role,users.id AS 'id_user', `image`, `content`, `date`, `user_post` FROM `post` 
+    JOIN users ON users.id = post.user_post";
     return pdo_query($sql);
 }
 function insertPost($ImageUpload, $mota, $date, $name)
@@ -12,17 +13,20 @@ function insertPost($ImageUpload, $mota, $date, $name)
 }
 function insterPostID($id)
 {
-    $sql = "SELECT * FROM `post` WHERE id=$id";
+    $sql = "SELECT * FROM `post`
+    JOIN users ON post.user_post = users.id
+    WHERE post.id=$id";
     return pdo_query_one($sql);
 }
-function updataPost($ImageUpload, $mota, $date, $name, $id)
+function updataPost($ImageUpload, $mota, $date, $id)
 {
     $sql = "UPDATE `post` SET `image`='$ImageUpload',`content`='$mota',
-    `date`='$date',`user_post`='$name' WHERE `id`='$id'";
+    `date`='$date' WHERE `id`='$id'";
     return pdo_execute($sql);
 }
-function deletePost($id){
- $sql = "DELETE FROM `post` WHERE id=$id";
- return pdo_query_one($sql);
+function deletePost($id)
+{
+    $sql = "DELETE FROM `post` WHERE id=$id";
+    return pdo_query_one($sql);
 }
 ?>

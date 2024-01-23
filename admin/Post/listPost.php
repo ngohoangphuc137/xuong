@@ -66,7 +66,7 @@
                                         <?php echo $count++ ?>
                                     </td>
                                     <td>
-                                        <?php echo $value['user_post'] ?>
+                                        <?php echo $value['user_name'] ?>
                                     </td>
                                     <td>
                                         <img width="110px" src="img/<?php echo $value['image'] ?>" alt="">
@@ -81,18 +81,26 @@
                                         </div>
 
                                     </td>
-                                    <td>Khách hàng</td>
+                                    <td>
+                                        <?php
+                                        if($value['role'] == 0){
+                                            echo "khách hàng";
+                                        }else{
+                                            echo "admin";
+                                        }
+                                        ?>
+                                    </td>
                                     <td>
                                         <?php echo $value['date'] ?>
                                     </td>
                                     <td><span class="badge bg-success">Đã nhận tiền</span></td>
                                     <td>
-                                        <a href="index.php?act=listPost&delPost=<?php echo $value['id'] ?>">
+                                        <a href="index.php?act=listPost&delPost=<?php echo $value['id_post'] ?>">
                                             <button style="color:red;" class="btn btn-primary" type="button" title="Xóa"><i
                                                 class="fas fa-trash-alt"></i></button>
                                         </a>
                                         
-                                        <a href="index.php?act=updataPost&idUpdata=<?php echo $value['id'] ?>">
+                                        <a href="index.php?act=updataPost&idUpdata=<?php echo $value['id_post'] ?>">
                                             <button class="btn btn-primary btn-sm edit" type="button" title="Sửa"><i
                                                     class="fa fa-edit"></i></button>
                                         </a>

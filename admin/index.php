@@ -185,7 +185,6 @@ if (isset($_GET['act']) && $_GET['act'] != "") {
                 $insterPostID = insterPostID($_GET['idUpdata']);
             }
             if (isset($_POST['btnUpdataPost'])) {
-                $name = $_POST['name'];
                 $date = $_POST['date'];
 
                 $ImageUpload = $_FILES['ImageUpload']['name'];
@@ -193,14 +192,14 @@ if (isset($_GET['act']) && $_GET['act'] != "") {
                     $ImageUpload = $insterPostID['image'];
                 } else {
                     if ($insterPostID['image'] !== "") {
-                        unlink("img/" . $insterPostID['image']);
+                      unlink("img/" . $insterPostID['image']);
                     }
                     $ImageUpload = $_FILES['ImageUpload']['name'];
                 }
                 $ImageUpload_tmp = $_FILES['ImageUpload']['tmp_name'];
 
                 $mota = $_POST['mota'];
-                updataPost($ImageUpload, $mota, $date, $name, $_GET['idUpdata']);
+                updataPost($ImageUpload, $mota, $date, $_GET['idUpdata']);
                 move_uploaded_file($ImageUpload_tmp, "img/" . $ImageUpload);
                 header('location:index.php?act=listPost');
             }

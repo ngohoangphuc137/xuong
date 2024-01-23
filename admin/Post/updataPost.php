@@ -15,8 +15,8 @@
                         <form class="row">
                             <div class="form-group col-md-3">
                                 <label class="control-label">Tên người đăng</label>
-                                <input class="form-control" name="name" type="text" 
-                                value="<?php echo $insterPostID['user_post'] ?>" placeholder="">
+                                <input class="form-control" readonly name="name" type="text" 
+                                value="<?php echo $insterPostID['user_name'] ?>" placeholder="">
                             </div>
                             <div class="form-group col-md-3">
                                 <label class="control-label">Ngày đăng</label>
