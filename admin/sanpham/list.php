@@ -1,117 +1,170 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website bán hàng</title>
-    <link rel="stylesheet" href="css1/css.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            padding: 8px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-        th {
-            background-color: #f2f2f2;
-            color: #333;
-            font-weight: bold;
-        }
-        td {
-            color: #666;
-        }
-        /* Các phần tử nút */
-        input[type="button"] {
-            padding: 15px 30px;
-            border: none;
-            background-color: black ;
-            color: white;
-            cursor: pointer;
-            border-radius: 3px;
-        }
-        input[type="button"]:hover {
-            background-color: #b9a06f;
-        }
-    </style>
-</head>
-<body>
-    <div class="boxcenter">
-      
-     
-        <div class="row2">
-         <div class="row2 font_title">
-          <h1>DANH SÁCH LOẠI HÀNG HÓA</h1>
-         </div>
-         <div class="row2 form_content ">
-          <form action="#" method="POST">
-           <div class="row2 mb10 formds_loai">
-            <form action="index.php?act=listsp" method="POST">
-                <input type="text" name="keyw" placeholder="Search entire store here...">
-                <select name="iddm" id="">
-                    <option value="0" selected>Tất cả</option>
-                    <?php
-                    foreach($listdanhmuc as $danhmuc){
-                        extract($danhmuc);
-                        echo '<option value="'.$id.'">'.$name.'</option>' ;
-                    }
-                    ?>
-           </select>
-           <input type="submit" name="clickOK" value="GO">
-            </form>
-           <table>
-            <tr>
-                <th></th>
-                <th>MÃ SẢN PHẨM</th>
-                <th>TÊN SẢN PHẨM</th>
-                <th>Giá</th>
-                <th>Hình</th>
-                <th>Lượt xem</th>
-                <th></th>
-            </tr>
-               <?php
-               foreach($listsanpham as $sanpham){
-                   extract($sanpham);
-                   $suasp="index.php?act=suasp&id=".$id;
-                   $xoasp="index.php?act=xoasp&id=".$id;
-                   $hinhpath="../upload/".$img;
-                   if(is_file($hinhpath)){
-                       $hinh="<img src='".$hinhpath."' width='100px' height='100px'>";
-                   }else{
-                       $hinh="No file img!";
-                   }
-                   echo ' <tr>
-             <td><input type="checkbox" name="" id=""></td>
-             <td>'.$id.'</td>
-             <td>'.$name.'</td>
-             <td>'.$price.'</td>
-             <td>'.$hinh.'</td>
-             
-             <td>'.$luotxem.'</td>
-             <td><a href="'.$suasp.'"><input type="button" value="Sửa"> </a>  <a href="'.$xoasp.'"><input type="button" value="Xóa"></a> </td>
-               </tr>';
-               }
-               ?>
-               
-           </table>
-           </div>
-           <div class="row mb10 ">
-         <input class="mr20" type="button" value="CHỌN TẤT CẢ">
-         <input  class="mr20" type="button" value="BỎ CHỌN TẤT CẢ">
-         <input  class="mr20" type="button" value="XÓA CÁC MỤC ĐÃ CHỌN">
-          <a href="index.php?act=addsp"> <input  class="mr20" type="button" value="NHẬP THÊM"></a>
-           </div>
-          </form>
-         </div>
-        </div>
-      
-
-       
+<main class="app-content">
+    <div class="app-title">
+        <ul class="app-breadcrumb breadcrumb side">
+            <li class="breadcrumb-item active"><a href="#"><b>Danh sách sản phẩm</b></a></li>
+        </ul>
+        <div id="clock"></div>
     </div>
-    
-</body>
-</html>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="tile">
+                <div class="tile-body">
+                    <div class="row element-button">
+                        <div class="col-sm-2">
+
+                        <a class="btn btn-add btn-sm" href="?act=addsp" title="Thêm"><i class="fas fa-plus"></i>
+                                Tạo mới sản phẩm</a>
+                        </div>
+                        <div class="col-sm-2">
+                            <a class="btn btn-delete btn-sm nhap-tu-file" type="button" title="Nhập" onclick="myFunction(this)"><i class="fas fa-file-upload"></i> Tải từ file</a>
+                        </div>
+
+                        <div class="col-sm-2">
+                            <a class="btn btn-delete btn-sm print-file" type="button" title="In" onclick="myApp.printTable()"><i class="fas fa-print"></i> In dữ liệu</a>
+                        </div>
+                        <div class="col-sm-2">
+                            <a class="btn btn-delete btn-sm print-file js-textareacopybtn" type="button" title="Sao chép"><i class="fas fa-copy"></i> Sao chép</a>
+                        </div>
+
+                        <div class="col-sm-2">
+                            <a class="btn btn-excel btn-sm" href="" title="In"><i class="fas fa-file-excel"></i> Xuất
+                                Excel</a>
+                        </div>
+                        <div class="col-sm-2">
+                            <a class="btn btn-delete btn-sm pdf-file" type="button" title="In" onclick="myFunction(this)"><i class="fas fa-file-pdf"></i> Xuất PDF</a>
+                        </div>
+                        <div class="col-sm-2">
+                            <a class="btn btn-delete btn-sm" type="button" title="Xóa" onclick="myFunction(this)"><i class="fas fa-trash-alt"></i> Xóa tất cả </a>
+                        </div>
+                    </div>
+                    <table class="table table-hover table-bordered" id="sampleTable">
+                        <thead>
+                            <tr>
+                                <th width="10"><input type="checkbox" id="all"></th>
+                                <th>Mã sản phẩm</th>
+                                <th>Tên sản phẩm</th>
+                                <th>Ảnh</th>
+                                <!-- <th>Số lượng</th>
+                                <th>Tình trạng</th> -->
+                                <th>Mô tả</th>
+                                <th>Giá tiền</th>
+                                <th>Danh mục</th>
+                                <th>Chức năng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($listsp as $sp) {
+                                extract($sp);    
+                                $xoasp = "index.php?act=xoasp&idsp=".$id;
+                                $suasp = "index.php?act=suasp&idsp=".$id;
+                            ?>
+                            <tr>
+                                <td width="10"><input type="checkbox" name="check1" value="1"></td>
+                                <td><?= $id ?></td>
+                                <td><?= $name_product ?></td>
+
+                                <td><img src="<?= $image ?>" alt="lỗi" width="100px;"></td>
+                                <!-- <td>40</td>  : số lượng (chưa làm)-->
+                                <!-- <td><span class="badge bg-success">Còn hàng</span></td> : status chưa làm -->
+                                <td><?= $detail ?></td>
+                                <td><?= $price ?></td>
+                                <td><?= $iddm ?></td>
+                                <td>
+                                    <a href="<?= $xoasp ?>"><button class="btn btn-primary btn-sm trash" type="button" title="Xóa" onclick="return confirm('Bạn có chắc chắn muốn xóa không')"><i class="fas fa-trash-alt"></i></button></a>
+                                    <a href="<?= $suasp ?>"><button class="btn btn-primary btn-sm edit" type="button" title="Sửa" id="show-emp" data-toggle="modal" data-target="#ModalUP"><i class="fas fa-edit"></i></button></a>
+                                </td>
+                            </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+  <!-- Essential javascripts for application to work-->
+  <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="src/jquery.table2excel.js"></script>
+    <script src="js/main.js"></script>
+    <!-- The javascript plugin to display page loading on top-->
+    <script src="js/plugins/pace.min.js"></script>
+    <!-- Page specific javascripts-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+    <!-- Data table plugin-->
+    <script type="text/javascript" src="js/plugins/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="js/plugins/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $('#sampleTable').DataTable();
+        //Thời Gian
+    function time() {
+      var today = new Date();
+      var weekday = new Array(7);
+      weekday[0] = "Chủ Nhật";
+      weekday[1] = "Thứ Hai";
+      weekday[2] = "Thứ Ba";
+      weekday[3] = "Thứ Tư";
+      weekday[4] = "Thứ Năm";
+      weekday[5] = "Thứ Sáu";
+      weekday[6] = "Thứ Bảy";
+      var day = weekday[today.getDay()];
+      var dd = today.getDate();
+      var mm = today.getMonth() + 1;
+      var yyyy = today.getFullYear();
+      var h = today.getHours();
+      var m = today.getMinutes();
+      var s = today.getSeconds();
+      m = checkTime(m);
+      s = checkTime(s);
+      nowTime = h + " giờ " + m + " phút " + s + " giây";
+      if (dd < 10) {
+        dd = '0' + dd
+      }
+      if (mm < 10) {
+        mm = '0' + mm
+      }
+      today = day + ', ' + dd + '/' + mm + '/' + yyyy;
+      tmp = '<span class="date"> ' + today + ' - ' + nowTime +
+        '</span>';
+      document.getElementById("clock").innerHTML = tmp;
+      clocktime = setTimeout("time()", "1000", "Javascript");
+
+      function checkTime(i) {
+        if (i < 10) {
+          i = "0" + i;
+        }
+        return i;
+      }
+    }
+    </script>
+    <!-- <script>
+        function deleteRow(r) {
+            var i = r.parentNode.parentNode.rowIndex;
+            document.getElementById("myTable").deleteRow(i);
+        }
+        jQuery(function () {
+            jQuery(".trash").click(function () {
+                swal({
+                    title: "Cảnh báo",
+                    text: "Bạn có chắc chắn là muốn xóa sản phẩm này?",
+                    buttons: ["Hủy bỏ", "Đồng ý"],
+                })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            swal("Đã xóa thành công.!", {
+
+                            });
+                        }
+                    });
+            });
+        });
+        oTable = $('#sampleTable').dataTable();
+        $('#all').click(function (e) {
+            $('#sampleTable tbody :checkbox').prop('checked', $(this).is(':checked'));
+            e.stopImmediatePropagation();
+        });
+    </script> -->
+
+    <!-- xong sản phẩm list -->
