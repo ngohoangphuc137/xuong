@@ -2,6 +2,7 @@
 include '../model/pdo.php';
 include '../model/danhmuc.php';
 include '../model/sanpham.php';
+include '../model/Post.php';
 include '../global.php';
 include "header.php";
 if (isset($_GET['act']) && $_GET['act'] != "") {
@@ -89,22 +90,22 @@ if (isset($_GET['act']) && $_GET['act'] != "") {
             include './sanpham/list.php';
             break;
         case 'xoasp':
-            if(isset($_GET['idsp'])&&($_GET['idsp']>0)){
+            if (isset($_GET['idsp']) && ($_GET['idsp'] > 0)) {
                 delete_sanpham($_GET['idsp']);
             }
             $listsp = loadall_sanpham();
             include './sanpham/list.php';
             break;
         case 'suasp':
-            if(isset($_GET['idsp']) && ($_GET['idsp']>0)){
+            if (isset($_GET['idsp']) && ($_GET['idsp'] > 0)) {
                 $sanpham = loadone_sanpham($_GET['idsp']);
-            } 
-           $listdm = loadall_danhmuc();
-           include "./sanpham/update.php";
+            }
+            $listdm = loadall_danhmuc();
+            include "./sanpham/update.php";
             break;
         case 'updatesp':
             if (isset($_POST['capnhat']) && $_POST['capnhat']) {
-                $id = $_POST['id']; 
+                $id = $_POST['id'];
                 $tensp = $_POST['tensp'];
                 $giasp = $_POST['giasp'];
                 $mota = $_POST['mota'];
@@ -128,7 +129,7 @@ if (isset($_GET['act']) && $_GET['act'] != "") {
                         $image_url = $targetFile;
 
                         // Gọi hàm insertProduct để thêm sản phẩm vào cơ sở dữ liệu
-                        $check = update_sanpham($id,$tensp, $giasp, $image_url, $mota, $iddm);
+                        $check = update_sanpham($id, $tensp, $giasp, $image_url, $mota, $iddm);
 
                         if (!$check) {
                             echo '<script>alert("Thêm sản phẩm thành công");</script>';
@@ -140,11 +141,71 @@ if (isset($_GET['act']) && $_GET['act'] != "") {
                     }
                 }
             }
-            $listdm =  loadall_danhmuc();
-            $listsp=   loadall_sanpham();             
+            $listdm = loadall_danhmuc();
+            $listsp = loadall_sanpham();
             include "./sanpham/list.php";
             break;
         //xong sản phẩm (chinh)  
+
+        //code của phúc
+        case "listPost":
+            $listPost = listPost();
+            
+            if(isset($_GET['delPost'])){
+                $deleImag=insterPostID($_GET['delPost']);
+            }
+            if(isset($_GET['delPost'])){
+                if($deleImag['image'] !== ""){
+                    unlink('img/'.$deleImag['image']);
+                }
+                deletePost($_GET['delPost']);
+                header("location:index.php?act=listPost");
+            }
+            include "./Post/listPost.php";
+            break;
+        case "morePost":
+            if (isset($_POST['btnMorePost'])) {
+                $name = $_POST['name'];
+                $date = $_POST['date'];
+
+                $ImageUpload = $_FILES['ImageUpload']['name'];
+                $ImageUpload_tmp = $_FILES['ImageUpload']['tmp_name'];
+
+                $mota = $_POST['mota'];
+                if (!empty($name) && !empty($date)) {
+                    insertPost($ImageUpload, $mota, $date, $name);
+                    move_uploaded_file($ImageUpload_tmp, "img/" . $ImageUpload);
+                    header('location:index.php?act=listPost');
+                }
+            }
+            include "./Post/morePost.php";
+            break;
+        case 'updataPost':
+            if (isset($_GET['idUpdata'])) {
+                $insterPostID = insterPostID($_GET['idUpdata']);
+            }
+            if (isset($_POST['btnUpdataPost'])) {
+                $name = $_POST['name'];
+                $date = $_POST['date'];
+
+                $ImageUpload = $_FILES['ImageUpload']['name'];
+                if ($ImageUpload == "") {
+                    $ImageUpload = $insterPostID['image'];
+                } else {
+                    if ($insterPostID['image'] !== "") {
+                        unlink("img/" . $insterPostID['image']);
+                    }
+                    $ImageUpload = $_FILES['ImageUpload']['name'];
+                }
+                $ImageUpload_tmp = $_FILES['ImageUpload']['tmp_name'];
+
+                $mota = $_POST['mota'];
+                updataPost($ImageUpload, $mota, $date, $name, $_GET['idUpdata']);
+                move_uploaded_file($ImageUpload_tmp, "img/" . $ImageUpload);
+                header('location:index.php?act=listPost');
+            }
+            include "./Post/updataPost.php";
+            break;
         default:
             include "home.php";
             break;
