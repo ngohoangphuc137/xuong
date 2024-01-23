@@ -2,6 +2,8 @@
 include '../model/pdo.php';
 include '../model/danhmuc.php';
 include '../model/sanpham.php';
+include '../model/taikhoan.php';
+
 include '../global.php';
 include "header.php";
 if (isset($_GET['act']) && $_GET['act'] != "") {
@@ -89,22 +91,22 @@ if (isset($_GET['act']) && $_GET['act'] != "") {
             include './sanpham/list.php';
             break;
         case 'xoasp':
-            if(isset($_GET['idsp'])&&($_GET['idsp']>0)){
+            if (isset($_GET['idsp']) && ($_GET['idsp'] > 0)) {
                 delete_sanpham($_GET['idsp']);
             }
             $listsp = loadall_sanpham();
             include './sanpham/list.php';
             break;
         case 'suasp':
-            if(isset($_GET['idsp']) && ($_GET['idsp']>0)){
+            if (isset($_GET['idsp']) && ($_GET['idsp'] > 0)) {
                 $sanpham = loadone_sanpham($_GET['idsp']);
-            } 
-           $listdm = loadall_danhmuc();
-           include "./sanpham/update.php";
+            }
+            $listdm = loadall_danhmuc();
+            include "./sanpham/update.php";
             break;
         case 'updatesp':
             if (isset($_POST['capnhat']) && $_POST['capnhat']) {
-                $id = $_POST['id']; 
+                $id = $_POST['id'];
                 $tensp = $_POST['tensp'];
                 $giasp = $_POST['giasp'];
                 $mota = $_POST['mota'];
@@ -128,7 +130,7 @@ if (isset($_GET['act']) && $_GET['act'] != "") {
                         $image_url = $targetFile;
 
                         // Gọi hàm insertProduct để thêm sản phẩm vào cơ sở dữ liệu
-                        $check = update_sanpham($id,$tensp, $giasp, $image_url, $mota, $iddm);
+                        $check = update_sanpham($id, $tensp, $giasp, $image_url, $mota, $iddm);
 
                         if (!$check) {
                             echo '<script>alert("Thêm sản phẩm thành công");</script>';
@@ -140,11 +142,25 @@ if (isset($_GET['act']) && $_GET['act'] != "") {
                     }
                 }
             }
-            $listdm =  loadall_danhmuc();
-            $listsp=   loadall_sanpham();             
+            $listdm = loadall_danhmuc();
+            $listsp = loadall_sanpham();
             include "./sanpham/list.php";
             break;
         //xong sản phẩm (chinh)  
+
+        //bắt đầu khách hàng
+        case 'listtk':
+            $listtk = loadall_taikhoan();
+            include './khachhang/list.php';
+            break;
+        case 'deletetk':
+            if (isset($_GET['idtk']) && $_GET['idtk'] > 0) {
+                delete_taikhoan($_GET['idtk']);
+            }
+            $listtk = loadall_taikhoan();
+            include './khachhang/list.php';
+            break;
+        //xong khách hàng
         default:
             include "home.php";
             break;

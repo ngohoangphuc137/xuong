@@ -53,7 +53,7 @@
 
       <li><a class="app-menu__item " href="index.php?act=listsp"><span class="app-menu__label">Quản Lý Sản Phẩm</span></a></li>
 
-      <li><a class="app-menu__item" href="#"><i class='app-menu__icon bx bx-user-voice'></i><span class="app-menu__label">Quản lý khách hàng</span></a></li>
+      <li><a class="app-menu__item" href="index.php?act=listtk"><span class="app-menu__label">Quản lý khách hàng</span></a></li>
 
       <li><a class="app-menu__item" href="table-data-product.html"><i class='app-menu__icon bx bx-purchase-tag-alt'></i><span class="app-menu__label">Quản lý sản phẩm</span></a>
       </li>

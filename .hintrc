@@ -11,7 +11,8 @@
           "@-ms-viewport",
           "-ms-filter",
           "-moz-box-orient",
-          "-ms-touch-action"
+          "-ms-touch-action",
+          "@-ms-viewport"
         ]
       }
     ],
