@@ -2,6 +2,7 @@
 include '../model/pdo.php';
 include '../model/danhmuc.php';
 include '../model/sanpham.php';
+include '../model/notification.php';
 include '../global.php';
 include "header.php";
 if (isset($_GET['act']) && $_GET['act'] != "") {
@@ -144,6 +145,10 @@ if (isset($_GET['act']) && $_GET['act'] != "") {
             $listsp=   loadall_sanpham();             
             include "./sanpham/list.php";
             break;
+            case 'notification':
+                $notifications=load_all_notification();
+                include_once 'notification/list.php';
+                break;
         //xong sản phẩm (chinh)  
         default:
             include "home.php";

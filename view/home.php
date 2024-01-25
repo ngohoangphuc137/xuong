@@ -86,166 +86,44 @@
           <div class="pro_cat">
             <div id="data-step1" class="product-slider-main position-r" data-temp="tabdata">
               <div class="owl-carousel pro_cat_slider">
-                <div class="item">
-                  <div class="product-item">
-                    <div class="sale-label"><span>Sale</span></div>
-                    <div class="product-image"> <a href="product-page.html"> <img src="images/1.jpg" alt=""> </a>
-                      <div class="product-detail-inner">
-                        <div class="detail-inner-left left-side">
-                          <ul>
-                            <li class="pro-cart-icon">
-                              <form>
-                                <button title="Add to Cart"></button>
-                              </form>
-                            </li>
-                            <li class="pro-wishlist-icon active"><a href="#"></a></li>
-                            <li class="pro-compare-icon"><a href="#"></a></li>
-                          </ul>
-                        </div>
-                        <div class="rating-summary-block right-side">
-                          <div title="53%" class="rating-result"> <span style="width:53%"></span> </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="product-item-details">
-                      <div class="product-item-name"> <a href="product-page.html">Defyant Reversible Dot Shorts</a> </div>
-                      <div class="price-box"> <span class="price">$80.00</span> <del class="price old-price">$100.00</del> </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="product-item">
-                    <div class="product-image"> <a href="product-page.html"> <img src="images/2.jpg" alt=""> </a>
-                      <div class="product-detail-inner">
-                        <div class="detail-inner-left left-side">
-                          <ul>
-                            <li class="pro-cart-icon">
-                              <form>
-                                <button title="Add to Cart"></button>
-                              </form>
-                            </li>
-                            <li class="pro-wishlist-icon"><a href="#"></a></li>
-                            <li class="pro-compare-icon"><a href="#"></a></li>
-                          </ul>
-                        </div>
-                        <div class="rating-summary-block right-side">
-                          <div title="53%" class="rating-result"> <span style="width:53%"></span> </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="product-item-details">
-                      <div class="product-item-name"> <a href="product-page.html">Defyant Reversible Dot Shorts</a> </div>
-                      <div class="price-box"> <span class="price">$80.00</span> <del class="price old-price">$100.00</del> </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="product-item">
-                    <div class="product-image"> <a href="product-page.html"> <img src="images/3.jpg" alt=""> </a>
-                      <div class="product-detail-inner">
-                        <div class="detail-inner-left left-side">
-                          <ul>
-                            <li class="pro-cart-icon">
-                              <form>
-                                <button title="Add to Cart"></button>
-                              </form>
-                            </li>
-                            <li class="pro-wishlist-icon"><a href="#"></a></li>
-                            <li class="pro-compare-icon"><a href="#"></a></li>
-                          </ul>
-                        </div>
-                        <div class="rating-summary-block right-side">
-                          <div title="53%" class="rating-result"> <span style="width:53%"></span> </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="product-item-details">
-                      <div class="product-item-name"> <a href="product-page.html">Defyant Reversible Dot Shorts</a> </div>
-                      <div class="price-box"> <span class="price">$80.00</span> <del class="price old-price">$100.00</del> </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="product-item">
-                    <div class="product-image"> <a href="product-page.html"> <img src="images/4.jpg" alt=""> </a>
-                      <div class="product-detail-inner">
-                        <div class="detail-inner-left left-side">
-                          <ul>
-                            <li class="pro-cart-icon">
-                              <form>
-                                <button title="Add to Cart"></button>
-                              </form>
-                            </li>
-                            <li class="pro-wishlist-icon"><a href="#"></a></li>
-                            <li class="pro-compare-icon"><a href="#"></a></li>
-                          </ul>
-                        </div>
-                        <div class="rating-summary-block right-side">
-                          <div title="53%" class="rating-result"> <span style="width:53%"></span> </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="product-item-details">
-                      <div class="product-item-name"> <a href="product-page.html">Defyant Reversible Dot Shorts</a> </div>
-                      <div class="price-box"> <span class="price">$80.00</span> <del class="price old-price">$100.00</del> </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="product-item">
-                    <div class="product-image"> <a href="product-page.html"> <img src="images/5.jpg" alt=""> </a>
-                      <div class="product-detail-inner">
-                        <div class="detail-inner-left left-side">
-                          <ul>
-                            <li class="pro-cart-icon">
-                              <form>
-                                <button title="Add to Cart"></button>
-                              </form>
-                            </li>
-                            <li class="pro-wishlist-icon"><a href="#"></a></li>
-                            <li class="pro-compare-icon"><a href="#"></a></li>
-                          </ul>
-                        </div>
-                        <div class="rating-summary-block right-side">
-                          <div title="53%" class="rating-result"> <span style="width:53%"></span> </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="product-item-details">
-                      <div class="product-item-name"> <a href="product-page.html">Defyant Reversible Dot Shorts</a> </div>
-                      <div class="price-box"> <span class="price">$80.00</span> <del class="price old-price">$100.00</del> </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="product-item">
-                    <div class="product-image"> <a href="product-page.html"> <img src="images/3.jpg" alt=""> </a>
-                      <div class="product-detail-inner">
-                        <div class="detail-inner-left left-side">
-                          <ul>
-                            <li class="pro-cart-icon">
-                              <form>
-                                <button title="Add to Cart"></button>
-                              </form>
-                            </li>
-                            <li class="pro-wishlist-icon"><a href="#"></a></li>
-                            <li class="pro-compare-icon"><a href="#"></a></li>
-                          </ul>
-                        </div>
-                        <div class="rating-summary-block right-side">
-                          <div title="53%" class="rating-result"> <span style="width:53%"></span> </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="product-item-details">
-                      <div class="product-item-name"> <a href="product-page.html">Defyant Reversible Dot Shorts</a> </div>
-                      <div class="price-box"> <span class="price">$80.00</span> <del class="price old-price">$100.00</del> </div>
-                    </div>
-                  </div>
-                </div>
+                <?php foreach($sanpham as $sp){
+                   extract($sp);
+                   $link="index.php?act=ctsanpham&id=".$id;
+                      
+                          echo '<div class="item">
+                          <div class="product-item">
+                            <div class="sale-label"><span>Sale</span></div>
+                            <div class="product-image"> <a href="'.$link.'"> <img src="images/'.$image.'" alt=""> </a>
+                              <div class="product-detail-inner">
+                                <div class="detail-inner-left left-side">
+                                  <ul>
+                                    <li class="pro-cart-icon">
+                                      <form>
+                                        <button title="Add to Cart"></button>
+                                      </form>
+                                    </li>
+                                    <li class="pro-wishlist-icon active"><a href="#"></a></li>
+                                    <li class="pro-compare-icon"><a href="#"></a></li>
+                                  </ul>
+                                </div>
+                                <div class="rating-summary-block right-side">
+                                  <div title="53%" class="rating-result"> <span style="width:53%"></span> </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="product-item-details">
+                              <div class="product-item-name"> <a href="product-page.html">'.$name_product.'</a> </div>
+                              <div class="price-box"> <span class="price">$'.$price.'</span>  </div>
+                            </div>
+                          </div>
+                        </div>';
+                ?>
+                
+                <?php  } ?>
+               
               </div>
             </div>
-            <div id="data-step2" class="product-slider-main position-r" data-temp="tabdata" style="display:none">
+            <!-- <div id="data-step2" class="product-slider-main position-r" data-temp="tabdata" style="display:none">
               <div class="owl-carousel pro_cat_slider">
                 <div class="item">
                   <div class="product-item">
@@ -886,8 +764,8 @@
                   </div>
                 </div>
               </div>
-            </div>
-            <div id="data-step6" class="product-slider-main position-r" data-temp="tabdata" style="display:none">
+            </div> -->
+            <!-- <div id="data-step6" class="product-slider-main position-r" data-temp="tabdata" style="display:none">
               <div class="owl-carousel pro_cat_slider">
                 <div class="item">
                   <div class="product-item">
@@ -1046,8 +924,8 @@
                   </div>
                 </div>
               </div>
-            </div>
-            <div id="data-step7" class="product-slider-main position-r" data-temp="tabdata" style="display:none">
+            </div> -->
+            <!-- <div id="data-step7" class="product-slider-main position-r" data-temp="tabdata" style="display:none">
               <div class="owl-carousel pro_cat_slider">
                 <div class="item">
                   <div class="product-item">
@@ -1207,8 +1085,8 @@
                   </div>
                 </div>
               </div>
-            </div>
-            <div id="data-step8" class="product-slider-main position-r" data-temp="tabdata" style="display:none">
+            </div> -->
+            <!-- <div id="data-step8" class="product-slider-main position-r" data-temp="tabdata" style="display:none">
               <div class="owl-carousel pro_cat_slider">
                 <div class="item">
                   <div class="product-item">
@@ -1367,7 +1245,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>

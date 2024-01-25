@@ -1,4 +1,5 @@
- <!-- BANNER STRAT -->
+<?php extract( $ctsanpham);
+?>
  <div class="banner inner-banner align-center">
     <div class="container">
       <section class="banner-detail">
@@ -18,19 +19,20 @@
   <section class="pt-95">
     <div class="container">
       <div class="row">
+        
         <div class="col-md-5 col-sm-5 mb-xs-30">
-          <div class="fotorama" data-nav="thumbs" data-allowfullscreen="native"> <a href="#"><img src="images/1.jpg" alt="Honour"></a> <a href="#"><img src="images/2.jpg" alt="Honour"></a> <a href="#"><img src="images/3.jpg" alt="Honour"></a> <a href="#"><img src="images/4.jpg" alt="Honour"></a> <a href="#"><img src="images/5.jpg" alt="Honour"></a> <a href="#"><img src="images/6.html" alt="Honour"></a> <a href="#"><img src="images/4.jpg" alt="Honour"></a> <a href="#"><img src="images/5.jpg" alt="Honour"></a> <a href="#"><img src="images/6.html" alt="Honour"></a> </div>
+          <div class="fotorama" data-nav="thumbs" data-allowfullscreen="native"> <a href="#"><img src="images/<?= $image ?>" alt="Honour"></a> <a href="#"><img src="images/2.jpg" alt="Honour"></a> <a href="#"><img src="images/3.jpg" alt="Honour"></a> <a href="#"><img src="images/4.jpg" alt="Honour"></a> <a href="#"><img src="images/5.jpg" alt="Honour"></a> <a href="#"><img src="images/6.html" alt="Honour"></a> <a href="#"><img src="images/4.jpg" alt="Honour"></a> <a href="#"><img src="images/5.jpg" alt="Honour"></a> <a href="#"><img src="images/6.html" alt="Honour"></a> </div>
         </div>
         <div class="col-md-7 col-sm-7">
           <div class="row">
             <div class="col-xs-12">
               <div class="product-detail-main">
                 <div class="product-item-details">
-                  <h1 class="product-item-name">Cross Colours Camo Print Tank half mengo</h1>
+                  <h1 class="product-item-name"><?= $name_product ?></h1>
                   <div class="rating-summary-block">
-                    <div title="53%" class="rating-result"> <span style="width:53%"></span> </div>
+                    <div  class="rating-result"> <span><?= $detail ?></span> </div>
                   </div>
-                  <div class="price-box"> <span class="price">$80.00</span> <del class="price old-price">$100.00</del> </div>
+                  <div class="price-box"> <span class="price"> Giá sản phẩm:$<?= $price ?></span> </div>
                   <div class="product-info-stock-sku">
                     <div>
                       <label>Availability: </label>
@@ -39,7 +41,7 @@
                       <label>SKU: </label>
                       <span class="info-deta">20MVC-18</span> </div>
                   </div>
-                  <p>Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada </p>
+                  <p><?= $detail ?></p>
                   <div class="product-size select-arrow mb-20 mt-30">
                     <label>Size</label>
                     <select class="selectpicker form-control" id="select-by-size">
@@ -59,18 +61,17 @@
                   </div>
                   <div class="mb-40">
                     <div class="product-qty">
-                      <label for="qty">Qty:</label>
-                      <div class="custom-qty">
-                        <button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) &amp; &amp; qty &gt; 1 ) result.value--;return false;" class="reduced items" type="button"> <i class="fa fa-minus"></i> </button>
-                        <input type="text" class="input-text qty" title="Qty" value="1" maxlength="8" id="qty" name="qty">
-                        <button onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;" class="increase items" type="button"> <i class="fa fa-plus"></i> </button>
-                      </div>
+                    
+                     
                     </div>
                     <div class="bottom-detail cart-button">
                       <ul>
                         <li class="pro-cart-icon">
                           <form>
-                            <button title="Add to Cart" class="btn-black"><span></span>Add to Cart</button>
+                            <?php 
+                            $link="index.php?act=checkout&id=".$id;
+                            ?>
+                            <button title="Add to Cart" class="btn-black"><span></span><a href="<?= $link ?>">Thuê Sản Phẩm Này</a></button>
                           </form>
                         </li>
                       </ul>
@@ -101,6 +102,7 @@
           </div>
         </div>
       </div>
+     
     </div>
   </section>
   <section class="ptb-95">
@@ -399,4 +401,4 @@
       </div>
     </div>
   </section>
-  <!-- CONTAINER END --> 
+  <!-- CONTAINER END 
