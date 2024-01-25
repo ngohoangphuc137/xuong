@@ -27,3 +27,17 @@ function update_sanpham($id,$tensp, $giasp, $hinh, $mota, $iddm){
     pdo_execute($sql);
 }
 //xong
+
+function load_all_product(){
+    $sql="SELECT *from products where 1";
+    $result=pdo_query($sql);
+    return $result;
+
+}
+// lấy 1 sản phẩm
+function load_one_product($id){
+    $sql ="SELECT *from products where id='$id'";
+    $result=pdo_query_one($sql);
+    return $result;
+}
+?>
