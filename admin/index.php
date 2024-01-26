@@ -87,6 +87,7 @@ if (isset($_GET['act']) && $_GET['act'] != "") {
             break;
         case 'listsp':
             $listsp = loadall_sanpham();
+            include './sanpham/expost.php';
             include './sanpham/list.php';
             break;
         case 'xoasp':
@@ -146,21 +147,22 @@ if (isset($_GET['act']) && $_GET['act'] != "") {
             include "./sanpham/list.php";
             break;
         //xong sản phẩm (chinh)  
-
+            
         //code của phúc
         case "listPost":
             $listPost = listPost();
-            
-            if(isset($_GET['delPost'])){
-                $deleImag=insterPostID($_GET['delPost']);
+
+            if (isset($_GET['delPost'])) {
+                $deleImag = insterPostID($_GET['delPost']);
             }
-            if(isset($_GET['delPost'])){
-                if($deleImag['image'] !== ""){
-                    unlink('img/'.$deleImag['image']);
+            if (isset($_GET['delPost'])) {
+                if ($deleImag['image'] !== "") {
+                    unlink('img/' . $deleImag['image']);
                 }
                 deletePost($_GET['delPost']);
                 header("location:index.php?act=listPost");
             }
+
             include "./Post/listPost.php";
             break;
         case "morePost":
@@ -192,7 +194,7 @@ if (isset($_GET['act']) && $_GET['act'] != "") {
                     $ImageUpload = $insterPostID['image'];
                 } else {
                     if ($insterPostID['image'] !== "") {
-                      unlink("img/" . $insterPostID['image']);
+                        unlink("img/" . $insterPostID['image']);
                     }
                     $ImageUpload = $_FILES['ImageUpload']['name'];
                 }
