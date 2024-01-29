@@ -3,6 +3,7 @@ include '../model/pdo.php';
 include '../model/danhmuc.php';
 include '../model/sanpham.php';
 include '../model/Post.php';
+include '../model/taikhoan.php';
 include '../global.php';
 include "header.php";
 if (isset($_GET['act']) && $_GET['act'] != "") {
@@ -147,7 +148,23 @@ if (isset($_GET['act']) && $_GET['act'] != "") {
             include "./sanpham/list.php";
             break;
         //xong sản phẩm (chinh)  
-            
+
+        //bắt đầu khách hàng
+        case 'listtk':
+            $listtk = loadall_taikhoan();
+            include './khachhang/list.php';
+            break;
+        case 'deletetk':
+            if (isset($_GET['idtk']) && $_GET['idtk'] > 0) {
+
+                delete_taikhoan($_GET['idtk']);
+                header('location:index.php?act=listtk');
+            }
+            $listtk = loadall_taikhoan();
+            include './khachhang/list.php';
+            break;
+        //xong khách hàng
+
         //code của phúc
         case "listPost":
             $listPost = listPost();
@@ -207,6 +224,7 @@ if (isset($_GET['act']) && $_GET['act'] != "") {
             }
             include "./Post/updataPost.php";
             break;
+        ///
         default:
             include "home.php";
             break;

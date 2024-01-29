@@ -24,7 +24,7 @@ if (isset($_POST['expostExcel'])) {
         $sheet->setCellValue('B' . $rowCount, $value['id']);
         $sheet->setCellValue('C' . $rowCount, $value['name_product']);
         $sheet->setCellValue('D' . $rowCount, $value['price']);
-        $sheet->setCellValue('E' . $rowCount, "<img src=http://localhost/xuong" . $value['image'] . ">");
+        $sheet->setCellValue('E' . $rowCount, "http://localhost/xuong" . $value['image']);
         $rowCount++;
     }
 
